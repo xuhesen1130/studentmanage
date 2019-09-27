@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/stu/update" method="post">
+    <table>
+        <tr>
+            <td><input th:value="${stu.id}" type="hidden" name="id" value=""/></td>
+        </tr>
+        <tr>
+
+            <td>姓名:<input th:value="${stu.username}" name="username" value=""/></td>
+
+        </tr>
+        <tr>
+
+            <td>密码:<input th:value="${stu.password}" name="password" value=""/></td>
+
+        </tr>
+        <tr>
+            <td><input type="submit" value="提交"/></td>
+        </tr>
+    </table>
+
+</form>
+
+</body>
+</html>

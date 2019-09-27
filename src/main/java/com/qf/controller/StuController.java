@@ -21,6 +21,7 @@ public class StuController {
     @Autowired
     private IStuService stuService;
 
+    //查询所有的 学生
     @RequestMapping("/list")
     public String queryall(ModelMap map){
         List<Student> studentList=stuService.list();
@@ -29,6 +30,7 @@ public class StuController {
         return "stulist";
     }
 
+    //删除学生
     @RequestMapping("/delete")
     public String delete(int id){
         System.out.println(id);
@@ -36,6 +38,7 @@ public class StuController {
         return "redirect:/stu/list";
     }
 
+    //通过id查询学生信息进行展示
     @RequestMapping("/toupdate")
     public String getStuById(int id,ModelMap map){
         Student stu = stuService.getById(id);
@@ -43,6 +46,7 @@ public class StuController {
         return "stuupdate";
     }
 
+    //提交修改学生信息
     @RequestMapping("/update")
     public String update(Student student){
         int id = student.getId();
@@ -50,11 +54,13 @@ public class StuController {
         return "redirect:/stu/list";
     }
 
+    //跳转添加学生页面
     @RequestMapping("/add")
     public String add(){
         return "add";
     }
 
+    //添加学生
     @RequestMapping("/save")
     public String savestu(Student student){
         stuService.saveOrUpdate(student);
